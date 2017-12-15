@@ -1,6 +1,6 @@
 from scrapy.spider import Spider
 from scrapy.selector import Selector
-from tutorial.items import DmozItem
+from .. import items
 
 
 class DmozSpider(Spider):
@@ -16,7 +16,7 @@ class DmozSpider(Spider):
         sites = sel.xpath('//ul[@class="directory-url"]/li')
         items = []
         for site in sites:
-            item = DmozItem()
+            item = items.DmozItem()
             item['title'] = site.xpath('a/text()').extract()
             item['link'] = site.xpath('a/@href').extract()
             item['desc'] = site.xpath('text()').extract()
