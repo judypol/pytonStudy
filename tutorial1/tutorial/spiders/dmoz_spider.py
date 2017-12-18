@@ -1,9 +1,10 @@
-from scrapy.spider import Spider
+from scrapy.spiders import Spider
 from scrapy.selector import Selector
 from .. import items
 
 
 class DmozSpider(Spider):
+    handle_httpstatus_list = [400, 403]
     name = "dmoz"
     allowed_domains = ['dmoz.org']
     start_urls = [
@@ -13,12 +14,12 @@ class DmozSpider(Spider):
 
     def parse(self, response):
         sel = Selector(response)
-        sites = sel.xpath('//ul[@class="directory-url"]/li')
-        items = []
+        sites = sel.xpath('//p')
+        # dmozItems = []
         for site in sites:
             item = items.DmozItem()
             item['title'] = site.xpath('a/text()').extract()
             item['link'] = site.xpath('a/@href').extract()
             item['desc'] = site.xpath('text()').extract()
-            items.append(item)
-        return items
+            # dmozItems.append(item)
+        yield item
