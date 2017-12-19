@@ -7,7 +7,7 @@ from scrapy import Request
 from .. import items
 
 
-class dceSpider(Spider):
+class dceNightSpider(Spider):
     name = "dce_night"  # name是必须的
     defaultHeader = {  # 请求头
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',

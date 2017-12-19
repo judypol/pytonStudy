@@ -3,6 +3,6 @@
 # @Author : lzh
 from scrapy import cmdline
 
-name = 'dce_night'
+name = 'dceDay'
 cmd = 'scrapy crawl {0}'.format(name)
 cmdline.execute(cmd.split())
