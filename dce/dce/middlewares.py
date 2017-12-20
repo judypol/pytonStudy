@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
 
 # Define here the models for your spider middleware
 #

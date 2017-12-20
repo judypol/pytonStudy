@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
 # @Time : 2017/1/1 17:51
 # @Author : lzh
 from scrapy import cmdline

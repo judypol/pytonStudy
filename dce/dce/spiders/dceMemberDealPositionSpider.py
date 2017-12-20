@@ -1,9 +1,12 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
 # @Time : 2017/1/1 17:51
 # @Author : lzh
 from scrapy.spiders import Spider
 from scrapy.selector import Selector
 from scrapy import Request
+
+from dce.utils import dateUtils
 from .. import items
 
 
@@ -47,18 +50,21 @@ class dceMemberDealPositionSpider(Spider):
             dceMemberItem1["memberName"] = tds[1].replace('\t', '').replace('\n', '').strip()
             dceMemberItem1["volume"] = tds[2].replace('\t', '').replace('\n', '').strip()
             dceMemberItem1["change"] = tds[3].strip().replace('\t', '').replace('\n', '').strip()
+            dceMemberItem1["date"]=dateUtils.getDateString()
             dceMemberItems.append(dceMemberItem1)
 
             dceMemberItem1 = items.DceMemberItem()
             dceMemberItem1["memberName"] = tds[5].replace('\t', '').replace('\n', '').strip()
             dceMemberItem1["volume"] = tds[6].replace('\t', '').replace('\n', '').strip()
             dceMemberItem1["change"] = tds[7].strip().replace('\t', '').replace('\n', '').strip()
+            dceMemberItem1["date"] = dateUtils.getDateString()
             dceMemberItems.append(dceMemberItem1)
 
             dceMemberItem1 = items.DceMemberItem()
             dceMemberItem1["memberName"] = tds[9].replace('\t', '').replace('\n', '').strip()
             dceMemberItem1["volume"] = tds[10].replace('\t', '').replace('\n', '').strip()
             dceMemberItem1["change"] = tds[11].strip().replace('\t', '').replace('\n', '').strip()
+            dceMemberItem1["date"] = dateUtils.getDateString()
             dceMemberItems.append(dceMemberItem1)
 
         for memberItem in dceMemberItems:

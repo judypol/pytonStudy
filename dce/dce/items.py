@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
 
 # Define here the models for your scraped items
 #
@@ -42,12 +43,14 @@ class DceDayItem(scrapy.Item):
     position = Field()  # 持仓量
     changePosition = Field()  # 持仓量变化
     turnover = Field()  # 成交额
+    date = Field()  # 爬取日期
 
 
 class DceMemberItem(scrapy.Item):
     memberName = Field()
     volume = Field()  # 成交量
     change = Field()  # 增减
+    date = Field()  # 爬取日期
 
 
 class DceWeekItem(scrapy.Item):
@@ -63,6 +66,7 @@ class DceWeekItem(scrapy.Item):
     position = Field()  # 持仓量
     changePosition = Field()  # 持仓量变化
     turnover = Field()  # 成交额
+    date = Field()  # 爬取日期
 
 
 class DceMonthItem(scrapy.Item):
@@ -78,3 +82,4 @@ class DceMonthItem(scrapy.Item):
     position = Field()  # 持仓量
     changePosition = Field()  # 持仓量变化
     turnover = Field()  # 成交额
+    date = Field()  # 爬取日期

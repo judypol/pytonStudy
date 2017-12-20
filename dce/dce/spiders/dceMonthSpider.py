@@ -1,9 +1,12 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
 # @Time : 2017/1/1 17:51
 # @Author : lzh
 from scrapy.spiders import Spider
 from scrapy.selector import Selector
 from scrapy import Request
+
+from dce.utils import dateUtils
 from .. import items
 
 
@@ -53,4 +56,5 @@ class dceMonthSpider(Spider):
             dceWeekItem["position"] = tds[9].strip().replace('\t', '').replace('\n', '').strip()
             dceWeekItem["changePosition"] = tds[10].strip().replace('\t', '').replace('\n', '').strip()
             dceWeekItem["turnover"] = tds[11].strip().replace('\t', '').replace('\n', '').strip()
+            dceWeekItem["date"] = dateUtils.getDateString()
             yield dceWeekItem
