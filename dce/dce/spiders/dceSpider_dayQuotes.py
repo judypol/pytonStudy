@@ -6,7 +6,7 @@ from scrapy.spiders import Spider
 from scrapy.selector import Selector
 from scrapy import Request
 
-from dce.utils import dateUtils
+from utils.dateUtils import DateUtils
 from .. import items
 
 
@@ -58,5 +58,5 @@ class dceDaySpider(Spider):
             dceDayItem["position"] = tds[10].strip().replace('\t', '').replace('\n', '').strip()
             dceDayItem["changePosition"] = tds[11].strip().replace('\t', '').replace('\n', '').strip()
             dceDayItem["turnover"] = tds[12].strip().replace('\t', '').replace('\n', '').strip()
-            dceDayItem["date"] = dateUtils.getDateString()
+            dceDayItem["date"] = DateUtils.getDateString()
             yield dceDayItem

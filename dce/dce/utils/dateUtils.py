@@ -3,27 +3,26 @@
 import time
 
 
-class dateUtils:
-    # 获取当前日期的字符串
-    @staticmethod
-    def getDateString():
-        localDate = time.strftime("%Y-%m-%d", time.localtime())
-        return localDate
-
-    # 获取当前时间的字符串
-    @staticmethod
-    def getDateTime():
-        localTime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        return localTime
-
+class DateUtils:
     # 按指定的格式，格式化字符串
     @staticmethod
-    def getDateString(date, formate):
+    def getDateString(date=None, formate=None):
+
+        if date is None:
+            date = time.localtime()
+        if formate is None:
+            formate = '%Y-%m-%d'
+
         date = time.strftime(formate, date)
         return date
 
     # 按指定的格式，格式化字符串
     @staticmethod
-    def getDateTimeString(date, formate):
+    def getDateTimeString(date=None, formate=None):
+        if date is None:
+            date = time.localtime()
+        if formate is None:
+            formate = '%Y-%m-%d %H:%M:%S'
+
         stringTime = time.strftime(formate, date)
         return stringTime

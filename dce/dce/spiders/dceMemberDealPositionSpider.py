@@ -6,7 +6,7 @@ from scrapy.spiders import Spider
 from scrapy.selector import Selector
 from scrapy import Request
 
-from dce.utils import dateUtils
+from utils.dateUtils import DateUtils
 from .. import items
 
 
@@ -64,7 +64,7 @@ class dceMemberDealPositionSpider(Spider):
             dceMemberItem1["memberName"] = tds[9].replace('\t', '').replace('\n', '').strip()
             dceMemberItem1["volume"] = tds[10].replace('\t', '').replace('\n', '').strip()
             dceMemberItem1["change"] = tds[11].strip().replace('\t', '').replace('\n', '').strip()
-            dceMemberItem1["date"] = dateUtils.getDateString()
+            dceMemberItem1["date"] = DateUtils.getDateString()
             dceMemberItems.append(dceMemberItem1)
 
         for memberItem in dceMemberItems:
