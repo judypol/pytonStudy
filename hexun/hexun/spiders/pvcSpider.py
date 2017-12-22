@@ -4,7 +4,7 @@
 from scrapy.spiders import Spider
 from scrapy.spiders import Request
 import json
-from hexun.items import HexunItem
+from items import HexunItem
 from utils.urlUtils import UrlUtils
 from utils.dateTimeUtils import DateTimeUtils
 
