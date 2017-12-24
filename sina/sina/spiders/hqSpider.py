@@ -7,8 +7,8 @@
 from scrapy.spiders import Spider
 from scrapy.spiders import Request
 import json
-from utils.urlUtils import UrlUtils
-from utils.dateTimeUtils import DateTimeUtils
+from sina.utils.urlUtils import UrlUtils
+from sina.utils.dateTimeUtils import DateTimeUtils
 
 class hqSpider(Spider):
     name = 'sinahq'
@@ -33,6 +33,8 @@ class hqSpider(Spider):
                 yield Request(url=url, callback=self.parseItem)
 
     def parseItem(self, response):
+        body=response.body_as_unicode().strip(';').strip('(').strip(')')
+        bodyData=body[body.index('"')+1:body.rindex('"')]
         jsonData = json.loads(response.body_as_unicode().strip(';').strip('(').strip(')'))
         datas = jsonData['Data'][0]
         contractCode = self.getContractName(response)
