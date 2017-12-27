@@ -28,3 +28,4 @@ class SinaItem(scrapy.Item):
     tradeUnit = scrapy.Field()  # 商品交易所简称
     catogory = scrapy.Field()  # 品种名简称
     date = scrapy.Field()  # 日期
+    # dateAndTime=scrapy.Field()  #去重用
