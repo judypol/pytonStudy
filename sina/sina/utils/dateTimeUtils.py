@@ -25,7 +25,10 @@ class DateTimeUtils:
             if month > 12:
                 month = month - 12
                 year = nowYear + 1
-            tmpDate = datetime.datetime(year=year, month=month,day=nowDate.day)
+            else:
+                month = month
+                year = nowYear
+            tmpDate = datetime.datetime(year=year, month=month, day=1)
             contractList.append(tmpDate.strftime('%y%m'))
 
         return contractList

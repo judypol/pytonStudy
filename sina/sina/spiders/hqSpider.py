@@ -23,7 +23,8 @@ class hqSpider(Spider):
         'L',
         'PP',
         'MA',
-        'SM'
+        'SM',
+        'AP'
     ]
     allowed_domains = ['hq.sinajs.cn']
 

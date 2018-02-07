@@ -14,7 +14,7 @@ BOT_NAME = 'sina'
 SPIDER_MODULES = ['sina.spiders']
 NEWSPIDER_MODULE = 'sina.spiders'
 
-LOG_FILE='scrapy.log'
+# LOG_FILE='scrapy.log'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'sina (+http://www.yourdomain.com)'
